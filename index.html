@@ -16,15 +16,80 @@
             </div>
         </header>
         <nav class="flex bg-white justify-center mt-0 w-full m-auto shadow-lg gap-20 items-center p-4">
-            <a href="#" class="hover:text-orange-500 hover:scale-125">Accueil</a>
-            <a href="#" class="hover:text-orange-500 hover:scale-125">Histoire</a>
+            <a href="#acceuil" class="hover:text-orange-500 hover:scale-125">Accueil</a>
+            <a href="#histoire" class="hover:text-orange-500 hover:scale-125">Histoire</a>
             <a href="#" class="hover:text-orange-500 hover:scale-125">Légendes</a>
             <a href="#" class="hover:text-orange-500 hover:scale-125">Expériences</a>
+            <a href="#article" class="hover:text-orange-500 hover:scale-125">Articles</a>
         </nav>
     </div>
-    <p class="">Le basketballl loin d'être un simple sport est une passion</p>
-    <footer class="bg-orange-500 mb-0 fixed bottom-0 w-full text-white text-center p-4">
+    <!-- Section pour l'accueil -->
+    <section id="accueil" class="text-center items-center justify-center mt-2" >
+        <h2 class="text-4xl text-bold" style="text-shadow: 1px 2px 2px orange;">Bienvenue dans le monde du Basketball</h2><br>
+            <p  class="">Le basketballl loin d'être un simple sport est une passion</p>
+            <p>Je serai grâce à ce blog votre source d'actualité et de plaisir pour ce sport</p>
+            <p class="mb-5 ">je voous remercie d'avance pour la visite et bonne lecture à vous</p>
+            <a href="#article" class="m-5 rounded-3xl bg-orange-500 text-white p-3 p-auto">Decouvrir les articles</a>
+    </section>
+<!-- Conteneur du carrousel -->
+<div class="carrousel container w-[80%] rounded-lg mx-auto my-12 relative">
+    <!-- Images -->
+    <div class="flex justify-center items-center m-auto h-[1000px] w-[1000px]">
+        <img src="jordan.jpg" alt="Image 1" class="active rounded-xl w-[80%] h-full object-fill">
+        <img src="LBJ.jpg" alt="Image 2" class="w-[80%] rounded-xl h-full object-fill">
+        <img src="basketball.jpg" alt="Image 3" class="w-[80%] rounded-xl h-full object-fill">
+    </div>
+    <h1 class="m-5 text-center text-5xl text-bold">Voici présent les candidats au débat du goat</h1>
+
+    <!-- Boutons de navigation -->
+    <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-orange-500 text-white p-2 rounded-full hover:bg-orange-600">
+        &lt;
+    </button>
+    <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-orange-500 text-white p-2 rounded-full hover:bg-orange-600">
+        &gt;
+    </button>
+</div>
+<!-- Section pour l'histoire du basketball -->
+ <section id="histoire">
+    
+ </section>
+   
+    <footer class="bg-orange-500 mb-0 fixed bottom-0 w-full h-[8%] text-white text-center p-4">
         <p>&copy; 2023 Blog pour les basketteurs. Tous droits réservés.</p>
     </footer>
+    <style>
+        .carrousel img:not(.active) {
+            display: none;
+        }
+    </style>
+    <script>
+          // Sélection des éléments
+          const images = document.querySelectorAll('.carrousel img');
+          const prevBtn = document.getElementById('prevBtn');
+          const nextBtn = document.getElementById('nextBtn');
+          let currentIndex = 0;
+  
+          // Fonction pour afficher l'image actuelle
+          function showImage(index) {
+              images.forEach((img, i) => {
+                  img.classList.toggle('active', i === index);
+              });
+          }
+  
+          // Bouton suivant
+          nextBtn.addEventListener('click', () => {
+              currentIndex = (currentIndex + 1) % images.length;
+              showImage(currentIndex);
+          });
+  
+          // Bouton précédent
+          prevBtn.addEventListener('click', () => {
+              currentIndex = (currentIndex - 1 + images.length) % images.length;
+              showImage(currentIndex);
+          });
+  
+          // Afficher la première image au chargement
+          showImage(currentIndex);
+    </script>
 </body>
 </html>
